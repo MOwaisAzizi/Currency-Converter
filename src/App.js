@@ -26,23 +26,26 @@ conver()
 
   return(
   <div className="container">
-      <div className="center">
-  <input type="text" placeholder="Amount" value={amount} onChange={(e)=>setamount(Number(e.target.value))}  disabled={isLoading}/>
-    <select onChange={(e)=>setfromCur(e.target.value)} disabled={isLoading} value={fromCur}>
+      {/* <div className="center"> */}
+  <input type="text" className="input-field" placeholder="Amount" value={amount} onChange={(e)=>setamount(Number(e.target.value))}  disabled={isLoading}/>
+  
+  <div className="button-container">
+  <select className="button" onChange={(e)=>setfromCur(e.target.value)} disabled={isLoading} value={fromCur}>
       <option value='USD'>USD</option>
       <option value='EUR'>EUR</option>
       <option value='GBP'>GPB</option>
       <option value='CAD'>CAD</option>
     </select>
   <span>to</span>
-    <select onChange={(e)=>setToCur(e.target.value)} value={toCur} disabled={isLoading}>
+    <select className="button" onChange={(e)=>setToCur(e.target.value)} value={toCur} disabled={isLoading}>
       <option value='USD'>USD</option>
       <option value='EUR'>EUR</option>
       <option value='GBP'>GPB</option>
       <option value='CAD'>CAD</option>
-    </select>
-  <p>OUTPUT : {converter} {toCur}</p>
+    </select><div/>
+  <p className="message">OUTPUT : {converter} {toCur}</p>
   </div>
+  
   </div>
 )
 }
