@@ -10,9 +10,8 @@ const[converter,setConverter] = useState('')
 const[isLoading,setIsLoading] = useState(false)
 // `https://api.frankfurter.app/latest?amount=10&from=GBP&to=USD`
 
-
 useEffect(function(){
-async function conver(){
+async function convert(){
   setIsLoading(true)
   const res = await fetch(`https://api.frankfurter.app/latest?amount=${amount}&from=${fromCur}&to=${toCur}`)
   const data = await res.json()
@@ -21,12 +20,11 @@ async function conver(){
 }
 
 if(fromCur==toCur ) return setConverter(amount)
-conver()
+  convert()
 },[amount,toCur,fromCur])
 
   return(
   <div className="container">
-      {/* <div className="center"> */}
   <input type="text" className="input-field" placeholder="Amount" value={amount} onChange={(e)=>setamount(Number(e.target.value))}  disabled={isLoading}/>
   
   <div className="button-container">
@@ -45,7 +43,6 @@ conver()
     </select><div/>
   <p className="message">OUTPUT : {converter} {toCur}</p>
   </div>
-  
   </div>
 )
 }
